@@ -16,6 +16,4 @@ class Pessoa(object):
             return consulta["nome"] #Depois que o JSON é serializado é possível filtrar o valor pela chave
         else:
             return consulta #Se for none, retorne esse valor
-
-        return consulta["nome"] #Depois que o JSON é serializado é possível filtrar o valor pela chave
         pass
