@@ -24,4 +24,4 @@ def apresentarIndex():
     #Caso não seja passado nenhum parâmetro, a index será exibida com o formulário vazio
     return render_template('index.html', nome = "", cpf="")
 
-app.run(debug=True, use_reloader=True)
+app.run()
