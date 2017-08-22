@@ -1,3 +1,19 @@
--> Depende das bibliotecas pymongo, flask e ipython
--> Roda nas configurações padrões do mongoDB (locahost: 27017)
--> O nome do DB e da collection é pessoas
+O software possui dependências especificadas no arquivo requeriments.pip. Para instalá-las, basta executar o comando: 
+
+pip install -r requirements.pip
+
+O programa deve ser iniciado pelo script "ProcessadorDeRequisicao.py". Para isso:
+
+python ProcessadorDeRequisicao.py
+
+O index do sistema estará em http://localhost:5000/
+
+A base de dados utilizada é o mongoDB em suas configurações padrões (localhost: 27017). Caso haja necessidade de mudança, deve-se passar uma string pelo construtor do MongoClient, que está no construtor da classe BancoDeDados. O banco de dados e a collection utilizada chamam-se "pessoas", e as chaves utilizadas são "nome" e "cpf".
+
+Comandos utilizados na criação da base de dados:
+
+use pessoas;
+db.pessoas.insert({nome:"Felipe", cpf: "123.456.789-00"});
+db.pessoas.insert({nome:"Neto", cpf: "009.876.543-21"});
+
+ATENÇÃO: O FORMULÁRIO DE CONSULTA POSSUI MÁSCARAS! TODOS OS CPFs INSERIDOS DEVEM CONTER PONTOS E TRAÇOS.
