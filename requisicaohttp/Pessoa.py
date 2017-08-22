@@ -1,3 +1,4 @@
+# coding: utf-8
 from BancoDeDados import BancoDeDados
 import json
 from bson.json_util import dumps
