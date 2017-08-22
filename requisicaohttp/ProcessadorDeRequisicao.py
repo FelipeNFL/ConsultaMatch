@@ -15,13 +15,17 @@ def realizarConsultaDeCPF():
     #dumps() serializa os dados do formulário para o formato JSON
     #loads() carrega o JSON serializado
     dadosForm = json.loads(dumps(dadosForm))
+    nome = Pessoa.consultarNome(dadosForm["cpf"])
     
-    #Pega o CPF passado como parâmetro da requisição, executa a consulta e renderiza a página com os resultados
-    return render_template('index.html', nome = Pessoa.consultarNome(dadosForm["cpf"]), cpf = dadosForm["cpf"])
+    if nome != None:
+        return render_template('index.html', nome = Pessoa.consultarNome(dadosForm["cpf"]), cpf = dadosForm["cpf"])
+    else:
+        return render_template('index.html', nome = "Erro! Confira se o CPF digitado está correto", cpf = dadosForm["cpf"])
+        
 
 @app.route("/")
 def apresentarIndex():
     #Caso não seja passado nenhum parâmetro, a index será exibida com o formulário vazio
     return render_template('index.html', nome = "", cpf="")
 
-app.run(debug=True, use_reloader=True)
+app.run()
