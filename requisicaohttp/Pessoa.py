@@ -11,5 +11,5 @@ class Pessoa(object):
         #dumps() serializa os resultados da consulta para o formato JSON
         #loads() carrega o JSON serializado
         consulta = json.loads(dumps(consulta))
-        return consulta["nome"] #Depois que o JSON � serializado é possível filtrar o valor pela chave
+        return consulta["nome"] #Depois que o JSON é serializado é possível filtrar o valor pela chave
         pass
