@@ -1,4 +1,3 @@
 -> Depende das bibliotecas pymongo, flask e ipython
 -> Roda nas configurações padrões do mongoDB (locahost: 27017)
 -> O nome do DB e da collection é pessoas
--> Execute o script ProcessadorDeRequisicao.py
