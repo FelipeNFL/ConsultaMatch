@@ -8,7 +8,7 @@ python __init__.py
 
 O index do sistema estará em http://localhost:5000/
 
-A base de dados utilizada é o mongoDB em suas configurações padrões (localhost: 27017). Caso haja necessidade de mudança, deve-se passar uma string pelo construtor do MongoClient, que está no construtor da classe BancoDeDados. O banco de dados e a collection utilizada chamam-se "pessoas", e as chaves utilizadas são "nome" e "cpf".
+A base de dados utilizada é o mongoDB em suas configurações padrões (localhost: 27017). Caso haja necessidade de mudança, é necessário escrever os dados do MongoDB no arquivo database.json, localizado na pasta/config. O banco de dados e a collection utilizada chamam-se "pessoas", e as chaves utilizadas são "nome" e "cpf".
 
 Comandos utilizados na criação da base de dados:
 
