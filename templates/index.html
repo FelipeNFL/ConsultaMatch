@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Consultar Nome</title>
+    <style type="text/css">
+		@import url(http://fonts.googleapis.com/css?family=Bitter);
+		body {
+		    font-family: "Bitter", sans-serif;
+		    font-size: 20px;
+		    text-align: center;
+		}
+		
+		input {
+			font-family: "Bitter", sans-serif;
+			width: 350px;
+			margin: 10px auto;
+    		padding: 16px;
+			font-size: 15px;
+			border: 1px solid #ccc;
+		}
+		
+		.botao {
+			background-color: #000;
+			color: #FFF;
+			font-size: 20px;
+		}
+    </style>
+  </head>
+  <body>
+  <h1>Buscar nome</h1>
+    <form action="http://localhost:5000/consulta" method="post" enctype='application/json'>
+      <input type="text" name="cpf" id="cpf" placeholder="Informe o CPF" value="{{cpf  or ""}}"><br>
+      <input type="text" name="nome" placeholder="Nome" value="{{nome or ""}}" disabled><br>
+      <input type="submit" value="Consultar" class="botao">
+    </form>
+    <script type=text/javascript src="{{url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+    <script type=text/javascript src="{{url_for('static', filename='js/jquery.maskedinput.min.js') }}"></script>
+  </body>
+</html>
