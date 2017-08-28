@@ -1,4 +1,3 @@
 eclipse.preferences.version=1
-encoding/Database.py=utf-8
-encoding/VerifyCPF.py=UTF-8
+encoding//modules/Database.py=utf-8
 encoding/__init__.py=utf-8

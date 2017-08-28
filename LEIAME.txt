@@ -13,7 +13,8 @@ A base de dados utilizada é o mongoDB em suas configurações padrões (localho
 Comandos utilizados na criação da base de dados:
 
 use pessoas;
-db.pessoas.insert({name:"Felipe", cpf: "123.456.789-00"});
-db.pessoas.insert({name:"Neto", cpf: "009.876.543-21"});
+db.pessoas.insert({name:"Felipe Nunes de Freitas Lima", cpf: "072.597.741-85"});
+db.pessoas.insert({name:"João Ferreira Martins", cpf: "412.140.554-43"});
+db.pessoas.insert({name:"Carla Aleluia da Silva", cpf: "812.618.438-86"});
 
 ATENÇÃO: O FORMULÁRIO DE CONSULTA POSSUI MÁSCARAS! TODOS OS CPFs INSERIDOS DEVEM CONTER PONTOS E TRAÇOS.

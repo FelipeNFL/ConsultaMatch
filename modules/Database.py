@@ -1,8 +1,11 @@
 # coding: utf-8
-from pymongo import MongoClient
-from VerifyCPF import CPF
 import json
-from Person import Person
+
+from pymongo import MongoClient
+
+from modules.Person import Person
+from modules.VerifyCPF import CPF
+
 
 class Database():
 
@@ -10,12 +13,12 @@ class Database():
         fileConfig = open('config/database.json')
         configs = json.loads(fileConfig.read())
         
+        self.client = MongoClient()
+        
         if configs['username'] != "" and configs["password"] != "":
-            self.client = MongoClient(port = configs['port'], username = configs['username'], password = configs['password'])
+            self.client = MongoClient(username = configs['username'], password = configs['password'])
         elif configs['port'] != "":
-            self.client = MongoClient(port=configs['port'])
-        else:
-            self.client = MongoClient()
+            self.client.PORT = configs['port']
         
         self.database = self.client.get_database("pessoas")
         
