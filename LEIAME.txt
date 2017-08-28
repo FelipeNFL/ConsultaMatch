@@ -2,7 +2,7 @@
 
 pip install -r requirements.pip
 
-O programa deve ser iniciado pelo script "ProcessadorDeRequisicao.py". Para isso:
+O programa deve ser iniciado pelo script "__init__.py". Para isso:
 
 python __init__.py
 
