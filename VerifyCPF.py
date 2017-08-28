@@ -3,6 +3,8 @@
 # fonte: http://www.python.org.br/wiki/VerificadorDeCPF
 
 import re
+from pip._vendor.pyparsing import basestring
+from pip._vendor.requests.packages.urllib3.connectionpool import xrange
 
 # traduz 123.456.789-10 para 12345678910
 _translate = lambda cpf: ''.join(re.findall("\d", cpf))
