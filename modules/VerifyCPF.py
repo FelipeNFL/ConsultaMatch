@@ -4,7 +4,6 @@
 
 import re
 
-from pip._vendor.pyparsing import basestring
 from pip._vendor.requests.packages.urllib3.connectionpool import xrange
 
 
@@ -44,7 +43,7 @@ class CPF(object):
 
     _gen = staticmethod(_gen)
     _translate = staticmethod(_translate)
-    
+
     def __init__(self, cpf):
         """O argumento cpf pode ser uma string nas formas:
 
@@ -56,27 +55,27 @@ class CPF(object):
         (1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 0)
 
         """
-        
+
         if isinstance(cpf, basestring):
             if not cpf.isdigit():
                 cpf = self._translate(cpf)
-            
+
         self.cpf = [int(x) for x in cpf]
 
     def __getitem__(self, index):
         """Retorna o dígito em index como string
 
         """
-        
+
         return self.cpf[index]
 
     def __repr__(self):
         """Retorna uma representação 'real', ou seja:
 
         eval(repr(cpf)) == cpf
-        
+
         """
-        
+
         return "CPF('%s')" % ''.join(str(x) for x in self.cpf)
 
     def __eq__(self, other):
@@ -85,7 +84,7 @@ class CPF(object):
         """
 
         return isinstance(other, CPF) and self.cpf == other.cpf
-    
+
     def __str__(self):
         """Retorna uma representação do CPF na forma:
 
@@ -104,7 +103,7 @@ class CPF(object):
         """Valida o número de cpf
 
         """
-        
+
         if _exceptions(self.cpf):
             return False
 

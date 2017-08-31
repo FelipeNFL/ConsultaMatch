@@ -17,12 +17,12 @@ db = Database()
 def getCPF():
     dadosForm = request.form.to_dict()
     dadosForm = json.loads(dumps(dadosForm))
-    
+
     try:
         person = db.getPersonByCPF(dadosForm['cpf'])
     except ValueError as error:
         return render_template('index.html', nome = error, cpf = dadosForm["cpf"])
-    
+
     return render_template('index.html', nome = person.name, cpf = person.cpf)
 
 @app.route("/")
