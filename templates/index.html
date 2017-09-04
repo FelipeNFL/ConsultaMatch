@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Consultar Nome</title>
     <style type="text/css">
 		@import url(http://fonts.googleapis.com/css?family=Bitter);
@@ -8,7 +9,7 @@
 		    font-size: 20px;
 		    text-align: center;
 		}
-		
+
 		input {
 			font-family: "Bitter", sans-serif;
 			width: 375px;
@@ -17,20 +18,66 @@
 			font-size: 15px;
 			border: 1px solid #ccc;
 		}
-		
+
 		.botao {
 			background-color: #000;
 			color: #FFF;
 			font-size: 20px;
 		}
     </style>
+    <script>
+
+      // Fonte: http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js (Adaptado)
+
+      function TestaCPF(strCPF) {
+          var Soma;
+          var Resto;
+          Soma = 0;
+        if (strCPF == "00000000000") return false;
+
+        for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+        Resto = (Soma * 10) % 11;
+
+          if ((Resto == 10) || (Resto == 11))  Resto = 0;
+          if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+        Soma = 0;
+          for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+          Resto = (Soma * 10) % 11;
+
+          if ((Resto == 10) || (Resto == 11))  Resto = 0;
+          if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+          return true;
+      }
+
+      function ValidarCPF(cpf){
+
+        var strCPF = document.formCPF.cpf.value;
+        strCPF = strCPF.replace(".", "");
+        strCPF = strCPF.replace(".", "");
+        strCPF = strCPF.replace("-", "");
+        strCPF = strCPF.replace("/", "");
+        strCPF = strCPF.replace("/", "");
+
+        if(TestaCPF(strCPF))
+          document.formCPF.submit();
+        else
+          document.formCPF.name.value = "O CPF digitado não existe!";
+      }
+
+      document.addEventListener('keypress', function(e){
+         if(e.which == 13){
+            document.formCPF.btnconsultar.onclick();
+         }
+      }, false);
+    </script>
   </head>
   <body>
   <h1>Buscar nome</h1>
-    <form action="http://localhost:5000/consulta" method="post" enctype='application/json'>
+    <form action="http://localhost:5000/consulta" method="post" enctype='application/json' name="formCPF">
       <input type="text" name="cpf" id="cpf" placeholder="Informe o CPF" value="{{cpf  or ""}}"><br>
-      <input type="text" name="name" placeholder="Nome" value="{{nome or ""}}" disabled><br>
-      <input type="submit" value="Consultar" class="botao">
+      <input type="text" name="name" id="name" placeholder="Nome" value="{{nome or ""}}" disabled><br>
+      <input type="button" name="btnconsultar" value="Consultar" class="botao" onclick="ValidarCPF()">
     </form>
     <script type=text/javascript src="{{url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
     <script type=text/javascript src="{{url_for('static', filename='js/jquery.maskedinput.min.js') }}"></script>

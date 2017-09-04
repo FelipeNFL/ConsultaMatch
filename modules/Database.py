@@ -28,7 +28,7 @@ class Database():
             if result != None:
                 return Person(result['cpf'],result['name'])
             else:
-                raise ValueError('O CPF específicado não consta na base de dados')
+                raise ValueError("O CPF específicado não consta na base de dados")
         else:
             raise ValueError("Esse CPF não existe")
 

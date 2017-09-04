@@ -21,7 +21,7 @@ def getCPF():
     try:
         person = db.getPersonByCPF(dadosForm['cpf'])
     except ValueError as error:
-        return render_template('index.html', nome = error, cpf = dadosForm["cpf"])
+        return render_template('index.html', nome = str(error).decode(encoding='UTF-8'), cpf = dadosForm["cpf"])
 
     return render_template('index.html', nome = person.name, cpf = person.cpf)
 
