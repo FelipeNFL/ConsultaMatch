@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Consultar Matchs</title>
+    <style type="text/css">
+		@import url(http://fonts.googleapis.com/css?family=Bitter);
+		body {
+		    font-family: "Bitter", sans-serif;
+		    font-size: 20px;
+		    text-align: center;
+		}
+		input {
+			font-family: "Bitter", sans-serif;
+			width: 375px;
+			margin: 10px auto;
+    		padding: 16px;
+			font-size: 15px;
+			border: 1px solid #ccc;
+		}
+
+    table {
+      text-align: center;
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10 20 10 20;
+      border-bottom: 1px solid #000;
+    }
+
+    tr:hover {background-color: #f5f5f5}
+    </style>
+  </head>
+  <body>
+  <h1>Matchs de {{company.name}}</h1>
+  {% block content %}
+      {% if financiers %}
+          <table>
+            <tr><th>CNPJ</th><th>Nome do Finaciador</th><th>Taxa de Juros Oferecida</th><th>Prazo de Pagamento</th><th>Garantias Aceitas</th></tr>
+            {% for financier in financiers %}
+              <tr><td>{{financier.cnpj}}</td><td>{{financier.name}}</td><td>{{financier.rate}}</td><td>{{financier.term}}</td><td>{{financier.warranty}}</td></tr>
+            {% endfor %}
+          </table>
+      {% else %}
+        Não existem matchs para a empresa específicada
+      {% endif %}
+
+      <br><br>
+      <a href="javascript:history.back()">Voltar</a>
+
+    {% endblock %}
+  </body>
+</html>

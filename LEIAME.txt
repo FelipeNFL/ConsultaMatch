@@ -1,13 +1,13 @@
 A base de dados utilizada pelo sistema é o mongoDB em suas configurações padrões (localhost: 27017, sem autenticação).
 Caso haja necessidade de mudança, é necessário escrever os dados do MongoDB no arquivo "database.json", localizado na pasta "/config".
 
-O banco de dados e a collection utilizada chamam-se "person", e as chaves utilizadas são "name" e "cpf".
+O banco de dados chama-se "credit", sendo as collections "financier" e "company"
 
 O serviço MongoDB é iniciado no Ubuntu através do comando: sudo systemctl start mongodb
-Você também pode verificar se ele foi iniciado corretamente através de: sudo systemctl status mongodb
+Para verificar se foi inicializad corretamente: sudo systemctl status mongodb
 
 Antes de testar o programa, é necessário executar o script installer.py.
-Ele é responsável por instalar os módulos dependentes e popular o banco de dados (LEMBRE-SE DE CONFIGURAR O database.json ANTES DISSO!).
+Ele é responsável por instalar os módulos dependentes e popular o banco de dados (***LEMBRE-SE DE CONFIGURAR O database.json ANTES DISSO!***).
 
 Para executar o instalador: python installer.py
 
@@ -15,13 +15,23 @@ Para inicar o programa: python __init__.py
 
 O index do sistema estará em http://localhost:5000/
 
-ATENÇÃO: O FORMULÁRIO DE CONSULTA POSSUI MÁSCARAS! TODOS OS CPFs INSERIDOS DEVEM CONTER PONTOS E TRAÇOS.
+ATENÇÃO: O FORMULÁRIO DE CONSULTA POSSUI MÁSCARAS! TODOS OS CNPJs QUE FOREM INSERIDOS DEVEM CONTER PONTOS E TRAÇOS.
 
 O instalador popula o banco de dados com os seguintes registros:
-
-_________________________________________________
-|      CPF       |            NOME              |
-| 072.597.741-85 | Felipe Nunes de Freitas Lima |
-| 412.140.554-43 | João Ferreira Martins        |
-| 812.618.438-86 | Carla Aleluia da Silva       |
-*************************************************
+_____________________________________________________________________________________________
+|        CNPJ          |        FINANCIADOR        | TAXA (% a.a.)| PRAZO (meses)| GARANTIA  |
+**********************************************************************************************
+| "42.109.758/0001-02" | "Banco do Pernambuco"     |      25      |      72      | "Terreno" |
+| "42.742.578/0001-63" | "Banco Camargo de Araújo" |      10      |      48      | "Imóvel"  |
+| "27.948.482/0001-62" | "InovaCred"               |      12      |      36      | "Terreno" |
+| "23.918.334/0001-44" | "Banco do Pará"           |      25      |      72      | "Terreno" |
+| "81.396.636/0001-04" | "Dinheiro Certo"          |      10      |      48      | "Imóvel"  |
+| "38.265.772/0001-28" | "CredFácil"               |      12      |      36      | "Terreno" |
+**********************************************************************************************
+________________________________________________________________________________________________
+|        CNPJ          |       EMPRESA             | TAXA (% a.a.)| PRAZO (meses)|   GARANTIA   |
+*************************************************************************************************
+| "18.259.473/0001-73" | "Empreendimentos do Sol"  |      25      |      72      |   "Terreno"  |
+| "14.886.257/0001-05" | "Floricultura do Azevedo" |      25      |      48      |   "Imóvel"   |
+| "63.816.653/0001-63" | "Bar's Rock"              |      12      |      36      |   "Terreno"  |
+*************************************************************************************************

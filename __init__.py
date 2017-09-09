@@ -1,32 +1,33 @@
 # coding: utf-8
 import json
-
 from bson.json_util import dumps
 from flask import Flask, request
 from flask.json import jsonify
 from flask.templating import render_template
-
-from modules.Database import Database
-from modules.Person import Person
-
+from modules.database import Database
 
 app = Flask("ConsultaNomeHTTP")
 db = Database()
 
-@app.route("/consulta", methods = ['POST'])
-def getCPF():
-    dadosForm = request.form.to_dict()
-    dadosForm = json.loads(dumps(dadosForm))
+@app.route("/consult", methods = ['POST','GET'])
+def getFinanciers():
+    dataForm = request.form.to_dict()
+    dataForm = json.loads(dumps(dataForm))
 
     try:
-        person = db.getPersonByCPF(dadosForm['cpf'])
+        company = db.getCompany(cnpj = dataForm['cnpj'])
     except ValueError as error:
-        return render_template('index.html', nome = str(error).decode(encoding='UTF-8'), cpf = dadosForm["cpf"])
+        return render_template('index.html', error = str(error).decode(encoding='UTF-8'), cnpj = dataForm['cnpj'])
 
-    return render_template('index.html', nome = person.name, cpf = person.cpf)
+    try:
+        financiers = db.getFinanciers(rate = company.rate, term = company.term, warranty = company.warranty)
+    except ValueError:
+        financiers = None
+
+    return render_template('match.html', company = company, financiers = financiers)
 
 @app.route("/")
 def apresentarIndex():
     return render_template('index.html')
 
-app.run()
+app.run(debug=True, use_reloader=True)
