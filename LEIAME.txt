@@ -7,7 +7,8 @@ O serviço MongoDB é iniciado no Ubuntu através do comando: sudo systemctl sta
 Para verificar se foi inicializad corretamente: sudo systemctl status mongodb
 
 Antes de testar o programa, é necessário executar o script installer.py.
-Ele é responsável por instalar os módulos dependentes e popular o banco de dados (***LEMBRE-SE DE CONFIGURAR O database.json ANTES DISSO!***).
+Ele é responsável por instalar os módulos dependentes e popular o banco de dados 
+(***LEMBRE-SE DE CONFIGURAR O database.json E INICIAR O SERVIÇO ANTES DISSO ANTES DISSO!***).
 
 Para executar o instalador: python installer.py
 
