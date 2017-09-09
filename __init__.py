@@ -30,4 +30,4 @@ def getFinanciers():
 def apresentarIndex():
     return render_template('index.html')
 
-app.run(debug=True, use_reloader=True)
+app.run()
