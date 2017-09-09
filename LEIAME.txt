@@ -1,5 +1,6 @@
 A base de dados utilizada pelo sistema é o mongoDB em suas configurações padrões (localhost: 27017, sem autenticação).
-Caso haja necessidade de mudança, é necessário escrever os dados do MongoDB no arquivo "database.json", localizado na pasta "/config".
+Caso haja necessidade de mudança, é necessário escrever os dados do MongoDB no arquivo "database.json", 
+localizado na pasta "/config".
 
 O banco de dados chama-se "credit", sendo as collections "financier" e "company"
 
