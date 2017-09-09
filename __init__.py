@@ -6,7 +6,7 @@ from flask.json import jsonify
 from flask.templating import render_template
 from modules.database import Database
 
-app = Flask("ConsultaNomeHTTP")
+app = Flask("ConsultaMatch")
 db = Database()
 
 @app.route("/consult", methods = ['POST','GET'])
