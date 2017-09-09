@@ -13,10 +13,8 @@ class Database():
 
         self.client = MongoClient()
 
-        if configs['username'] != "" and configs["password"] != "":
-            self.client = MongoClient(username = configs['username'], password = configs['password'])
-        elif configs['port'] != "":
-            self.client.PORT = configs['port']
+        if(str(configs['port']) != ''):
+            self.client = MongoClient(port = int(configs['port']))
 
         self.database = self.client.credit
         fileConfig.close()
@@ -52,4 +50,4 @@ class Database():
         if result != None:
             return Company(cnpj = result['cnpj'], name = result['name'], rate = result['rate'], term = result['term'], warranty = result['warranty'])
         else:
-            raise ValueError("Não foi encontrada empresa sob esse CNPJ")
+            raise ValueError("Não há empresa cadastrada sob esse CNPJ no sistema")
