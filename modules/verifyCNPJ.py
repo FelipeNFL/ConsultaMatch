@@ -38,7 +38,7 @@ class CNPJ(object):
         try:
             basestring
         except:
-            basestring = (str, unicode)
+            basestring = (str, str)
 
         if isinstance(cnpj, basestring):
             if not cnpj.isdigit():
@@ -52,7 +52,7 @@ class CNPJ(object):
         if len(cnpj) < 14:
             raise ValueError("O número de CNPJ deve ter 14 digítos")
 
-        self.cnpj = map(int, cnpj)
+        self.cnpj = list(map(int, cnpj))
 
 
     def __getitem__(self, index):
@@ -112,7 +112,7 @@ class CNPJ(object):
 
         """
         d = ((2, "."), (6, "."), (10, "/"), (15, "-"))
-        s = map(str, self.cnpj)
+        s = list(map(str, self.cnpj))
         for i, v in d:
             s.insert(i, v)
         r = ''.join(s)
@@ -147,7 +147,3 @@ class CNPJ(object):
         # se o número com os digítos faltantes coincidir com o número
         # original, então ele é válido
         return bool(cnpj == self.cnpj)
-
-if __name__ == "__main__":
-    import doctest, sys
-    doctest.testmod(sys.modules[__name__])
