@@ -4,8 +4,11 @@ from modules.database import Database
 from modules.models.financier import Financier
 from modules.models.company import Company
 
-os.system("pip install -r requirements.pip")
+saida = os.system("pip install -r requirements.pip")
+
 db = Database()
+
+db.client.drop_database('credit')
 
 db.insertFinancier(Financier(cnpj = "42.109.758/0001-02", name = "Banco do Pernambuco", rate = 25, term = 72, warranty = "Terreno"))
 db.insertFinancier(Financier(cnpj = "42.742.578/0001-63", name = "Banco Camargo de Araújo", rate = 10, term = 48, warranty = "Imóvel"))

@@ -4,20 +4,18 @@ import json
 from pymongo import MongoClient
 from modules.models.financier import Financier
 from modules.models.company import Company
+from modules.configDB import ConfigDB
 
 class Database():
 
     def __init__(self):
-        fileConfig = open('config/database.json','r')
-        configs = json.loads(fileConfig.read())
-
+        configs = ConfigDB()
         self.client = MongoClient()
 
-        if(str(configs['port']) != ''):
-            self.client = MongoClient(port = int(configs['port']))
+        if(configs.port != ''):
+            self.client = MongoClient(port = int(configs.port))
 
         self.database = self.client.credit
-        fileConfig.close()
 
     def insertFinancier(self, financier):
         if self.database.financier.insert_one({'cnpj' : financier.cnpj, 'name' : financier.name, 'rate' : financier.rate, 'term' : financier.term, 'warranty' : financier.warranty}).acknowledged == False:

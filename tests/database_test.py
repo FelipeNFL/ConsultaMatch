@@ -16,11 +16,11 @@ class DatabaseTest(unittest.TestCase):
         db.database.financier.delete_one({'cnpj' : "31.213.941/0001-37"})
         db.database.financier.delete_one({'cnpj' : "24.642.112/0001-04"})
         db.database.financier.delete_one({'cnpj' : "19.576.165/0001-34"})
-        self.assertEquals(len(financiers),1)
-        self.assertEquals(financiers[0].name, "Financiador Teste 1")
-        self.assertEquals(financiers[0].rate, 70)
-        self.assertEquals(financiers[0].term, 72)
-        self.assertEquals(financiers[0].warranty, "Terreno")
+        self.assertEqual(len(financiers),1)
+        self.assertEqual(financiers[0].name, "Financiador Teste 1")
+        self.assertEqual(financiers[0].rate, 70)
+        self.assertEqual(financiers[0].term, 72)
+        self.assertEqual(financiers[0].warranty, "Terreno")
 
     def test_insertFinancier(self):
         db = Database()
@@ -40,10 +40,10 @@ class DatabaseTest(unittest.TestCase):
         db.database.company.delete_one({'cnpj' : "93.612.749/0001-70"})
         db.database.company.delete_one({'cnpj' : "27.456.797/0001-92"})
         db.database.company.delete_one({'cnpj' : "26.805.322/0001-00"})
-        self.assertEquals(company.name, "Companhia Teste 1")
-        self.assertEquals(company.rate, 25)
-        self.assertEquals(company.term, 72)
-        self.assertEquals(company.warranty, "Terreno")
+        self.assertEqual(company.name, "Companhia Teste 1")
+        self.assertEqual(company.rate, 25)
+        self.assertEqual(company.term, 72)
+        self.assertEqual(company.warranty, "Terreno")
 
     def test_insertCompany(self):
         db = Database()

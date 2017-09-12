@@ -1,4 +1,4 @@
-A base de dados utilizada pelo sistema é o mongoDB em suas configurações padrões (localhost: 27017, sem autenticação).
+﻿A base de dados utilizada pelo sistema é o mongoDB em suas configurações padrões (localhost: 27017, sem autenticação).
 Caso haja necessidade de mudança, é necessário escrever os dados do MongoDB no arquivo "database.json", 
 localizado na pasta "/config".
 
@@ -15,7 +15,9 @@ Para executar o instalador: python installer.py
 
 Para inicar o programa: python __init__.py
 
-O index do sistema estará em http://localhost:5000/
+O index do sistema estará, por padrão, em http://localhost:5000/
+
+Caso haja necessidade, é possível trocar a porta usada no arquivo "flask.json", localizado na pasta "/config"
 
 ATENÇÃO: O FORMULÁRIO DE CONSULTA POSSUI MÁSCARAS! TODOS OS CNPJs QUE FOREM INSERIDOS DEVEM CONTER PONTOS E TRAÇOS.
 
@@ -38,3 +40,12 @@ ________________________________________________________________________________
 | "14.886.257/0001-05" | "Floricultura do Azevedo" |      25      |      48      |   "Imóvel"   | NÃO POSSUI MATCH
 | "63.816.653/0001-63" | "Bar's Rock"              |      12      |      36      |   "Terreno"  | POSSUI MATCH COM INOVACRED E CREDFÁCIL
 *************************************************************************************************
+
+Para rodar os testes unitários, utilize os comandos:
+
+python -m tests.database_test
+python -m tests.verifyCNPJ_test
+python -m tests.models.company_test
+python -m tests.models.financier_test
+python -m tests.configFlask_test
+python -m tests.configDB_test

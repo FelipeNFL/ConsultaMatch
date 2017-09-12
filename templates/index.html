@@ -1,4 +1,4 @@
-<html>
+﻿<html>
   <head>
     <meta charset="utf-8">
     <title>Consultar Matchs</title>
@@ -96,7 +96,7 @@
   </head>
   <body>
   <h1>Buscar matchs</h1>
-    <form action="http://localhost:5000/consult" method="post" enctype='application/json' name="formCNPJ" onsubmit="return ValidarCNPJ();">
+    <form action="http://localhost:{{ port }}/consult" method="post" enctype='application/json' name="formCNPJ" onsubmit="return ValidarCNPJ();">
       {% if error %}
         <script> alert('{{ error }}'); </script>
       {% endif %}
