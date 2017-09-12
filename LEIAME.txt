@@ -30,10 +30,11 @@ ________________________________________________________________________________
 | "81.396.636/0001-04" | "Dinheiro Certo"          |      10      |      48      | "Imóvel"  |
 | "38.265.772/0001-28" | "CredFácil"               |      12      |      36      | "Terreno" |
 **********************************************************************************************
+DICA: TESTE UM CNPJ DE UM FINANCIADOR PARA TESTAR O CASO EM QUE O CNPJ É VÁLIDO, MAS NÃO CONSTA NA BASE DE DADOS DE EMPRESAS
 ________________________________________________________________________________________________
 |        CNPJ          |       EMPRESA             | TAXA (% a.a.)| PRAZO (meses)|   GARANTIA   |
 *************************************************************************************************
-| "18.259.473/0001-73" | "Empreendimentos do Sol"  |      25      |      72      |   "Terreno"  |
-| "14.886.257/0001-05" | "Floricultura do Azevedo" |      25      |      48      |   "Imóvel"   |
-| "63.816.653/0001-63" | "Bar's Rock"              |      12      |      36      |   "Terreno"  |
+| "18.259.473/0001-73" | "Empreendimentos do Sol"  |      25      |      72      |   "Terreno"  | POSSUI MATCH COM BANCO DO PE E DO PA
+| "14.886.257/0001-05" | "Floricultura do Azevedo" |      25      |      48      |   "Imóvel"   | NÃO POSSUI MATCH
+| "63.816.653/0001-63" | "Bar's Rock"              |      12      |      36      |   "Terreno"  | POSSUI MATCH COM INOVACRED E CREDFÁCIL
 *************************************************************************************************
