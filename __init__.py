@@ -17,7 +17,7 @@ def getFinanciers():
     try:
         company = db.getCompany(cnpj = dataForm['cnpj'])
     except ValueError as error:
-        return render_template('index.html', error = str(error).decode(encoding='UTF-8'), cnpj = dataForm['cnpj'])
+        return render_template('index.html', error = str(error), cnpj = dataForm['cnpj'])
 
     try:
         financiers = db.getFinanciers(rate = company.rate, term = company.term, warranty = company.warranty)
